@@ -1,3 +1,3 @@
 
 
-## Blog form Laracast Laravel 8 From Sctatch
+# Blog project form Laracast Laravel 8 From Sctatch
