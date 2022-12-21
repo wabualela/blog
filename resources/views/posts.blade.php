@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -10,26 +10,28 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    <style>
+        body {
+            text-align: right;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Posts</h1>
+    <main>
+        <h1>مقالات</h1>
 
-    <article>
-        <h3><a href="/posts/my-first-post">My First Article</a></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi perferendis neque delectus rem quaerat aspernatur animi eum, laborum facilis sunt a, consectetur dolorum necessitatibus velit quasi autem omnis adipisci quod?</p>
-    </article>
-
-    <article>
-        <h3><a href="/posts/my-second-post">My Second Article</a></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et laborum optio vel nulla reprehenderit ipsam quis cumque similique! Dolorem possimus totam harum dicta aliquid, hic sapiente repudiandae eveniet. Blanditiis, neque?</p>
-    </article>
-
-    <article>
-        <h3><a href="/posts/my-third-post">My Third Article</a></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam rerum, iusto sunt porro quae corrupti veniam alias quod libero qui necessitatibus velit ad assumenda id quisquam dolor vel est eum!</p>
-    </article>
-
+        @foreach($posts as $post)
+        <article>
+            <h3>
+                <a href="{{ url('posts/' .$post->slug) }}">{{ $post->title }}</a>
+                <h4>{{$post->category->name}}</h4>
+            </h3>
+            <p>{{ $post->body }}</p>
+        </article>
+        @endforeach
+    </main>
 </body>
 
 </html>
