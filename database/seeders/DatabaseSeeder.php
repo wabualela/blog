@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Post;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +16,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory()->create([
-            'name' => 'Kamal faroug'
+            'name' => 'Testing user',
+            'email' => 'test@example.com',
+            'password' => Hash::make('Pass@2022')
         ]);
 
         Post::factory(12)->create();
